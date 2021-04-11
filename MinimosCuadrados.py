@@ -6,7 +6,6 @@ Created on Mon Jun  8 11:54:37 2020
 """
 
 
-from colorama import init, Fore, Back, Style
 import matplotlib.pyplot as plt
 from tabulate import tabulate
 import numpy as np
@@ -20,9 +19,9 @@ def minimum_squares ():
             if iteration_num > 0:
                 break
             else:
-                print(Fore.RED + "O P C I Ó N   N O   V A L I D A")
+                print("O P C I Ó N   N O   V A L I D A")
         except ValueError:
-            print(Fore.RED + "O P C I Ó N   N O   V A L I D A")
+            print("O P C I Ó N   N O   V A L I D A")
     print('Introduce los valores de Xi')
     Xi=np.array([0.00]*iteration_num, dtype=np.complex_)
     for i in range (0, iteration_num):
@@ -31,7 +30,7 @@ def minimum_squares ():
                 Xi[i] = complex(input('Xi en la posición {}: '.format(i)))
                 break
             except ValueError:
-                print(Fore.RED + "O P C I Ó N   N O   V A L I D A")
+                print("O P C I Ó N   N O   V A L I D A")
     #Leer f(Xi) del usuario
     print('Introduce los valores de f(Xi)')
     fXi=np.array([0.00]*iteration_num, dtype=np.complex_)
@@ -41,7 +40,7 @@ def minimum_squares ():
                 fXi[i]=complex(input('f(Xi) en la posición {}: '.format(i)))
                 break
             except ValueError:
-                print(Fore.RED + "O P C I Ó N   N O   V A L I D A")
+                print("O P C I Ó N   N O   V A L I D A")
     polynomial_grade, coef_0, coef_1 = calculate(Xi, fXi)
     graph (Xi, fXi, iteration_num, polynomial_grade, coef_0, coef_1)
     
@@ -101,9 +100,9 @@ def calculate (Xi, fXi):
                 if polynomial_size in [1, 2, 3]:
                     break
                 else:
-                    print(Fore.RED + "O P C I Ó N   N O   V A L I D A")
+                    print("O P C I Ó N   N O   V A L I D A")
             except ValueError:
-                print(Fore.RED + "O P C I Ó N   N O   V A L I D A")
+                print("O P C I Ó N   N O   V A L I D A")
                 
     table = ([[None]]*(n_x+1)) 
     #
@@ -129,8 +128,8 @@ def calculate (Xi, fXi):
             #
             #Asignacion de los valores en la tabla
             #
-        print(Fore.WHITE +'Polinomio de grado 1')
-        print(Fore.WHITE +'{:.4f} + {:.4f}x'.format(abs(a_0), abs(a_1)))
+        print('Polinomio de grado 1')
+        print('{:.4f} + {:.4f}x'.format(abs(a_0), abs(a_1)))
         return polynomial_size, a_0, a_1
     #
     #
@@ -172,8 +171,8 @@ def calculate (Xi, fXi):
         print('a1 = '+str(abs(a_1)))
         print('a2 = '+str(abs(a_2)))
         print('')
-        print(Fore.WHITE +'Polinomio de grado 2')
-        print (Fore.WHITE +'{:.4f} + {:.4f}x + {:.4f}x^2'.format(abs(a_0), abs(a_1), abs(a_2)))
+        print('Polinomio de grado 2')
+        print ('{:.4f} + {:.4f}x + {:.4f}x^2'.format(abs(a_0), abs(a_1), abs(a_2)))
         return polynomial_size, a_0, a_1
     #
     #
@@ -222,8 +221,8 @@ def calculate (Xi, fXi):
         print('a2 = '+str(abs(a_2)))
         print('a3 = '+str(abs(a_3)))
         print('')
-        print(Fore.WHITE +'Polinomio de grado 3')
-        print (Fore.WHITE +'{:.4f} + {:.4f}x + {:.4f}x^2 + {:.4f}x^3'.format(abs(a_0), abs(a_1), abs(a_2), abs(a_3)))
+        print('Polinomio de grado 3')
+        print ('{:.4f} + {:.4f}x + {:.4f}x^2 + {:.4f}x^3'.format(abs(a_0), abs(a_1), abs(a_2), abs(a_3)))
         return polynomial_size, a_0, a_1
     
 if __name__ == '__main__':

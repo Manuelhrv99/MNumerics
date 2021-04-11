@@ -6,7 +6,6 @@ Created on Sun Jun 14 23:02:25 2020
 """
 
 
-from colorama import init, Fore, Back, Style
 from tabulate import tabulate
 from sympy import Symbol
 from sympy import cos
@@ -21,7 +20,7 @@ def calculate():
             Xo = float(input('¿Cuanto vale Xo? '))
             break
         except ValueError:
-            print(Fore.RED + "O P C I Ó N   N O   V A L I D A")
+            print("O P C I Ó N   N O   V A L I D A")
     #
     #Lee la función
     #
@@ -32,7 +31,7 @@ def calculate():
             f = str(input('Escribe la función: '))
             break
         except ValueError:
-            print(Fore.RED + "O P C I Ó N   N O   V A L I D A")
+            print("O P C I Ó N   N O   V A L I D A")
     #Lee el error
     while True:
         try:
@@ -40,12 +39,12 @@ def calculate():
             error = float(input('Escribe el tamaño del error: '))
             break
         except ValueError:
-            print(Fore.RED + "O P C I Ó N   N O   V A L I D A")
+            print("O P C I Ó N   N O   V A L I D A")
     #Hace las iteraciones
     x = Symbol('x')
     expr = eval(f)
     derived = expr.diff(x)
-    print(Fore.WHITE +'La derivada de la función es : '+str(derived))
+    print('La derivada de la función es : '+str(derived))
     calc_error = 1
     #
     #Variables para guardar los resultados
@@ -71,7 +70,7 @@ def print_table(results_xo, results_error):
         table[i] = [i, results_xo[i], results_error[i]]
     
     print (tabulate(table, headers, tablefmt='fancy_grid', floatfmt = ".6f"))
-    print(Fore.WHITE +'La raiz de convergencia es: '+str(results_xo[n-1]))
+    print('La raiz de convergencia es: '+str(results_xo[n-1]))
 
 if __name__ == '__main__':
     results_xo, results_error = calculate()

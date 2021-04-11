@@ -6,7 +6,6 @@ Created on Mon Jun 15 23:48:03 2020
 """
 
 
-from colorama import init, Fore, Back, Style
 from tabulate import tabulate
 from sympy import Symbol
 from sympy import cos
@@ -22,19 +21,19 @@ def static_point():
             Xi = float(input('¿Cuanto vale Xo? '))
             break
         except ValueError:
-            print(Fore.RED + "O P C I Ó N   N O   V A L I D A")
+            print("O P C I Ó N   N O   V A L I D A")
     #
     #Lee la función
     #
     while True:
         try:
-            print('Simplificar ecuación ejemplo: x³ + 2x² + 10x - 20 = 0 == x = 20 / x³ + 2x +10')
+            print('Simplificar ecuación ejemplo: x³ + 2x² + 10x - 20 = 0 == x = 20 / x² + 2x + 10')
             print('Ejemplo de función simplificada: Coseno X -3X se escribe --> cos(x) / 3')
-            print('Ejemplo de función simplicada: x³ + 2x² + 10x - 20 se escribe --> 20 / (x**2 + 2*x +10)')
+            print('Ejemplo de función simplicada: x³ + 2x² + 10x - 20 se escribe --> 20 / (x**2 + 2*x + 10)')
             f = str(input('Escribe la función simplificada: '))
             break
         except ValueError:
-            print(Fore.RED + "O P C I Ó N   N O   V A L I D A")
+            print("O P C I Ó N   N O   V A L I D A")
     #Lee el error
     while True:
         try:
@@ -42,7 +41,7 @@ def static_point():
             error = float(input('Escribe el tamaño del error: '))
             break
         except ValueError:
-            print(Fore.RED + "O P C I Ó N   N O   V A L I D A")
+            print("O P C I Ó N   N O   V A L I D A")
     g_xi = 0
     calc_error = 1
     #
@@ -65,7 +64,7 @@ def static_point():
             solve_error.append(calc_error)
             i = i+1
         else:
-            print(Fore.WHITE +'El problema no tiene solución')
+            print('El problema no tiene solución')
             sys.exit()
     return solve_xi, solve_g_xi, solve_error
     
@@ -77,7 +76,7 @@ def print_table(results_xi, results_g_xi, results_error):
         table[i] = [i, results_xi[i], results_g_xi[i], results_error[i]]
     
     print (tabulate(table, headers, tablefmt='fancy_grid', floatfmt = ".6f"))
-    print(Fore.WHITE +'La raiz de convergencia es: '+str(results_xi[n-1]))
+    print('La raiz de convergencia es: '+str(results_xi[n-1]))
 
 if __name__ == '__main__':
     results_xi, results_g_xi, results_error = static_point()

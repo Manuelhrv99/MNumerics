@@ -6,13 +6,12 @@ Created on Thu Jun  4 12:25:04 2020
 """
 
 
-from colorama import init, Fore, Back, Style
 from scipy.interpolate import lagrange
 import matplotlib.pyplot as plt
 from tabulate import tabulate
 import numpy as np
 
-def lagrange ():
+def lagrangeMethod ():
     #Leer Xi del usuario
     #Los while validan que el usuario escriba un valor correcto
     while True:
@@ -21,9 +20,9 @@ def lagrange ():
             if iteration_num > 0:
                 break
             else:
-                print(Fore.RED + "O P C I Ó N   N O   V A L I D A")
+                print("O P C I Ó N   N O   V A L I D A")
         except ValueError:
-            print(Fore.RED + "O P C I Ó N   N O   V A L I D A")
+            print("O P C I Ó N   N O   V A L I D A")
     print('Introduce los valores de Xi')
     Xi=np.array([0.00]*iteration_num)
     for i in range (0, iteration_num):
@@ -32,7 +31,7 @@ def lagrange ():
                 Xi[i] = float(input('Xi en la posición {}: '.format(i)))
                 break
             except ValueError:
-                print(Fore.RED + "O P C I Ó N   N O   V A L I D A")
+                print("O P C I Ó N   N O   V A L I D A")
     #Leer f(Xi) del usuario
     print('Introduce los valores de f(Xi)')
     fXi=np.array([0.00]*iteration_num)
@@ -42,14 +41,14 @@ def lagrange ():
                 fXi[i]=float(input('f(Xi) en la posición {}: '.format(i)))
                 break
             except ValueError:
-                print(Fore.RED + "O P C I Ó N   N O   V A L I D A")
+                print("O P C I Ó N   N O   V A L I D A")
     #Lee la posicion de X que busca el usuario
     while True:
         try:
             question = str(input('¿Deseas calcular algún valor? || Si/No '))
             break
         except ValueError:
-            print(Fore.RED + "O P C I Ó N   N O   V A L I D A")
+            print("O P C I Ó N   N O   V A L I D A")
     #Variables inicializadas
     work = False
     user_xi = 0
@@ -60,25 +59,25 @@ def lagrange ():
                 user_xi = float (input('¿Qué valor deseas calcular? '))
                 break
             except ValueError:
-                print(Fore.RED + "O P C I Ó N   N O   V A L I D A")
+                print("O P C I Ó N   N O   V A L I D A")
         #Con resultado
         work = True
         #Aqui va el resultado
         result = calculate(Xi, fXi, user_xi)
         graph (Xi, fXi, user_xi, result, iteration_num, work)
-        print (Fore.WHITE +'El resultado de f(Xi) en el punto Xi = {:.2f} es de {:.4f}'.format(user_xi, result))
+        print ('El resultado de f(Xi) en el punto Xi = {:.2f} es de {:.4f}'.format(user_xi, result))
     else:
         #Sin resultado
         graph (Xi, fXi, user_xi, result, iteration_num, work)
     #Crea el polinomio en formato legible
     polynomial = lagrange(Xi, fXi)
-    print (Fore.WHITE +'Polinomio')
+    print ('Polinomio')
     print (polynomial)
     print_table (Xi, fXi, iteration_num)
 
 def calculate (Xi, fXi, user_xi):      
     polynomial = lagrange(Xi, fXi)
-    print (Fore.WHITE +'Polinomio')
+    print ('Polinomio')
     print (polynomial)
     lag_result = polynomial(user_xi)
     print (lag_result)
@@ -132,4 +131,4 @@ def graph (Xi, fXi, user_xi, result, iteration_num, work):
     plt.title('Diferencias Divididas')
 
 if __name__ == '__main__':
-    lagrange ()
+    lagrangeMethod ()

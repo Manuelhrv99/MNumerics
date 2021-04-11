@@ -6,7 +6,6 @@ Created on Wed Jun 10 22:49:56 2020
 """
 
 
-from colorama import init, Fore, Back, Style
 import matplotlib.pyplot as plt
 from tabulate import tabulate
 from math import *
@@ -21,13 +20,13 @@ def runge_2 ():
                 x = float(input('¿Cuanto vale x(0)? '))
                 break
             except ValueError:
-                print(Fore.RED + "O P C I Ó N   N O   V A L I D A")
+                print("O P C I Ó N   N O   V A L I D A")
     while True:
             try:
                 x_final = float(input('¿Cuanto vale x(final)? '))
                 break
             except ValueError:
-                print(Fore.RED + "O P C I Ó N   N O   V A L I D A")
+                print("O P C I Ó N   N O   V A L I D A")
     #
     #Lee y(0)
     #
@@ -36,7 +35,7 @@ def runge_2 ():
                 y = float(input('¿Cuanto vale y(0)? '))
                 break
             except ValueError:
-                print(Fore.RED + "O P C I Ó N   N O   V A L I D A")
+                print("O P C I Ó N   N O   V A L I D A")
     #
     #Pregunta si se conoce el valor de n o h
     #
@@ -46,9 +45,9 @@ def runge_2 ():
             if question.upper() in ['N', 'H']:
                 break
             else:
-                print(Fore.RED + "O P C I Ó N   N O   V A L I D A")
+                print("O P C I Ó N   N O   V A L I D A")
         except ValueError:
-            print(Fore.RED + "O P C I Ó N   N O   V A L I D A")
+            print("O P C I Ó N   N O   V A L I D A")
     #
     #Cuando la respuesta es n
     #
@@ -59,9 +58,9 @@ def runge_2 ():
                 if n > 0:
                     break
                 else:
-                    print(Fore.RED + "O P C I Ó N   N O   V A L I D A")
+                    print("O P C I Ó N   N O   V A L I D A")
             except ValueError:
-                print(Fore.RED + "O P C I Ó N   N O   V A L I D A")
+                print("O P C I Ó N   N O   V A L I D A")
         h = float((x_final - x) / n)
     #
     #Cuando la respuesta es h
@@ -72,7 +71,7 @@ def runge_2 ():
                 h = float(input('¿Cuanto vale el intervalo? '))
                 break
             except ValueError:
-                print(Fore.RED + "O P C I Ó N   N O   V A L I D A")
+                print("O P C I Ó N   N O   V A L I D A")
         n = int((x_final - x) / h)
     #
     #Lee la función
@@ -83,7 +82,7 @@ def runge_2 ():
             f = str(input('Escribe la función: '))
             break
         except ValueError:
-            print(Fore.RED + "O P C I Ó N   N O   V A L I D A")
+            print("O P C I Ó N   N O   V A L I D A")
     #
     #Hace las iteraciones
     #
@@ -144,7 +143,7 @@ def print_table (results_x, results_y):
         
     print (tabulate(table, headers, tablefmt='fancy_grid', floatfmt = ".4f"))
     res = results_y[iteration_num-1]
-    print(Fore.WHITE +'Resultado de y(?) = '+str(res))
+    print('Resultado de y(?) = '+str(res))
 
 if __name__ == '__main__':
     results_x, results_y = runge_2 ()

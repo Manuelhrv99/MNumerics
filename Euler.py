@@ -6,7 +6,6 @@ Created on Wed Jun 10 13:25:43 2020
 """
 
 
-from colorama import init, Fore, Back, Style
 import matplotlib.pyplot as plt
 from tabulate import tabulate
 from math import *
@@ -21,13 +20,13 @@ def euler ():
                 x = float(input('¿Cuanto vale x(0)? '))
                 break
             except ValueError:
-                print(Fore.RED + "O P C I Ó N   N O   V A L I D A")
+                print("O P C I Ó N   N O   V A L I D A")
     while True:
             try:
                 x_final = float(input('¿Cuanto vale x(final)? '))
                 break
             except ValueError:
-                print(Fore.RED + "O P C I Ó N   N O   V A L I D A")
+                print("O P C I Ó N   N O   V A L I D A")
     #
     #Lee y(0)
     #
@@ -36,7 +35,7 @@ def euler ():
                 y = float(input('¿Cuanto vale y(0)? '))
                 break
             except ValueError:
-                print(Fore.RED + "O P C I Ó N   N O   V A L I D A")
+                print("O P C I Ó N   N O   V A L I D A")
     #
     #Pregunta si se conoce el valor de n o h
     #
@@ -46,9 +45,9 @@ def euler ():
             if question.upper() in ['N', 'H']:
                 break
             else:
-                print(Fore.RED + "O P C I Ó N   N O   V A L I D A")
+                print("O P C I Ó N   N O   V A L I D A")
         except ValueError:
-            print(Fore.RED + "O P C I Ó N   N O   V A L I D A")
+            print("O P C I Ó N   N O   V A L I D A")
     #
     #Cuando la respuesta es n
     #
@@ -58,7 +57,7 @@ def euler ():
                 n = int(input('¿Cuantos subintervalos va a calcular? '))
                 break
             except ValueError:
-                print(Fore.RED + "O P C I Ó N   N O   V A L I D A")
+                print("O P C I Ó N   N O   V A L I D A")
         h = float((x_final - x) / n)
     #
     #Cuando la respuesta es h
@@ -69,7 +68,7 @@ def euler ():
                 h = float(input('¿Cuanto vale el intervalo? '))
                 break
             except ValueError:
-                print(Fore.RED + "O P C I Ó N   N O   V A L I D A")
+                print("O P C I Ó N   N O   V A L I D A")
         n = int((x_final - x) / h)
     #
     #Lee la función
@@ -80,7 +79,7 @@ def euler ():
             f = str(input('Escribe la función: '))
             break
         except ValueError:
-            print(Fore.RED + "O P C I Ó N   N O   V A L I D A")
+            print("O P C I Ó N   N O   V A L I D A")
     #
     #Hace las iteraciones
     #
@@ -134,8 +133,8 @@ def print_table (results_x, results_y):
         table[i] = [i, results_x[i], results_y[i]]
         
     print (tabulate(table, headers, tablefmt='fancy_grid', floatfmt = ".4f"))
-    print (Fore.WHITE +'Resultado')
-    print(Fore.WHITE +'y(final) = {}'.format(str(results_y[iteration_num-1])))
+    print ('Resultado')
+    print('y(final) = {}'.format(str(results_y[iteration_num-1])))
 
 if __name__ == '__main__':
     results_x, results_y = euler ()

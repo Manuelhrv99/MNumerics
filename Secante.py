@@ -6,7 +6,6 @@ Created on Mon Jun 15 23:09:22 2020
 """
 
 
-from colorama import init, Fore, Back, Style
 from tabulate import tabulate
 from sympy import Symbol
 from sympy import cos
@@ -21,13 +20,13 @@ def secant():
             x_0 = float(input('¿Cuanto vale X(0)? '))
             break
         except ValueError:
-            print(Fore.RED + "O P C I Ó N   N O   V A L I D A")
+            print("O P C I Ó N   N O   V A L I D A")
     while True:
         try:
             x_1 = float(input('¿Cuanto vale X(1)? '))
             break
         except ValueError:
-            print(Fore.RED + "O P C I Ó N   N O   V A L I D A")
+            print("O P C I Ó N   N O   V A L I D A")
     #
     #Lee la función
     #
@@ -38,7 +37,7 @@ def secant():
             f = str(input('Escribe la función: '))
             break
         except ValueError:
-            print(Fore.RED + "O P C I Ó N   N O   V A L I D A")
+            print("O P C I Ó N   N O   V A L I D A")
     #Lee el error
     while True:
         try:
@@ -46,7 +45,7 @@ def secant():
             error = float(input('Escribe el tamaño del error: '))
             break
         except ValueError:
-            print(Fore.RED + "O P C I Ó N   N O   V A L I D A")
+            print("O P C I Ó N   N O   V A L I D A")
     #
     #Variables para guardar los resultados
     #
@@ -77,7 +76,7 @@ def print_table(results_xi, results_error):
         table[i] = [i, results_xi[i], results_error[i]]
     
     print (tabulate(table, headers, tablefmt='fancy_grid', floatfmt = ".6f"))
-    print(Fore.WHITE +'La raiz de convergencia es: '+str(results_xi[n-1]))
+    print('La raiz de convergencia es: '+str(results_xi[n-1]))
 
 if __name__ == '__main__':
     results_xi, results_error = secant()

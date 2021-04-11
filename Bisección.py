@@ -6,7 +6,6 @@ Created on Fri Jun 12 12:57:58 2020
 """
 
 
-from colorama import init, Fore, Back, Style
 import matplotlib.pyplot as plt
 from tabulate import tabulate
 from sympy import *
@@ -23,23 +22,23 @@ def bisection ():
                 Xi = int(input('¿Cuanto vale Xi? '))
                 break
             except ValueError:
-                print(Fore.RED + "O P C I Ó N   N O   V A L I D A")
+                print("O P C I Ó N   N O   V A L I D A")
     while True:
             try:
                 Xd = int(input('¿Cuanto vale Xd? '))
                 break
             except ValueError:
-                print(Fore.RED + "O P C I Ó N   N O   V A L I D A")
+                print("O P C I Ó N   N O   V A L I D A")
     #
     #Lee la función
     #
     while True:
-        try:
+        try:#x**3-6*x**2+11*x-6
             print('Ejemplo de función: x³ + 2x² + 10x - 20 se escribe --> x**3+2*x**2+10*x-20')
             f = str(input('Escribe la función: '))
             break
         except ValueError:
-            print(Fore.RED + "O P C I Ó N   N O   V A L I D A")
+            print("O P C I Ó N   N O   V A L I D A")
     #Lee el error
     while True:
         try:
@@ -47,7 +46,7 @@ def bisection ():
             error = float(input('Escribe el tamaño del error: '))
             break
         except ValueError:
-            print(Fore.RED + "O P C I Ó N   N O   V A L I D A")
+            print("O P C I Ó N   N O   V A L I D A")
     x = Xi
     expr = eval(f)
     fXi = expr
@@ -73,7 +72,7 @@ def bisection ():
         Xm = 0
         Xm_aux = 0
         calc_error = Xm - Xm_aux
-        print(Fore.WHITE +'El problema tiene solucion')
+        print('El problema tiene solucion')
         table = ([[None]]*(n+1))
         headers = ['Iteraciones', 'Xi', 'Xd', 'f(Xi)', 'f(Xd)', 'Xm', 'Error']
         table[0] = [0, Xi, Xd, fXi, fXd, Xm, abs(calc_error)]
@@ -104,10 +103,10 @@ def bisection ():
             solve_fxi[i+1] = fXi
             solve_fxd[i+1] = fXd
     else:
-        print(Fore.WHITE +'El problema NO tiene solucion')
+        print('El problema NO tiene solucion')
         sys.exit() #Corta el programa
     print (tabulate(table, headers, tablefmt='fancy_grid', floatfmt = ".6f"))
-    print(Fore.WHITE +'La raiz de solucion es = '+str(Xm))
+    print('La raiz de solucion es = '+str(Xm))
     return solve_xi, solve_xd, solve_fxi, solve_fxd
     
 
