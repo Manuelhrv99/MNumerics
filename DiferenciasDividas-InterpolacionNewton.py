@@ -61,16 +61,14 @@ def run ():
         work = True
         #Aqui va el resultado
         result = calculate(Xi, fXi, user_xi, work)
-        graph (Xi, fXi, user_xi, result, iteration_num, work)
         print ('El resultado de f(Xi) en el punto Xi = {:.2f} es de {:.4f}'.format(user_xi, result))
-    else:
-        #Sin resultado
-        graph (Xi, fXi, user_xi, result, iteration_num, work)
+        
     #Crea el polinomio en formato legible
     polynomial = lagrange(Xi, fXi)
     print ('Polinomio')
     print (polynomial)
     print_table (Xi, fXi)
+    graph (Xi, fXi, user_xi, result, iteration_num, work)
     
 def calculate (Xi, fXi, user_xi, work):
     array_lenght = len(Xi)
@@ -164,8 +162,7 @@ def graph (Xi, fXi, user_xi, result, iteration_num, work):
     plt.xlabel('Xi')
     plt.ylabel('f(Xi)')
     plt.title('Diferencias Divididas')
+    plt.show()
 
 if __name__ == '__main__':
     run ()
-"""Xi=numpy.array([1, 5, 20, 40])
-fXi=numpy.array([56.5, 113.0, 181.0, 214.5])"""
